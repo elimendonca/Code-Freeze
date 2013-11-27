@@ -51,7 +51,12 @@ jQuery(document).ready(function($) {
 		'.theme-options',
 		'.delete-theme',
 		'#availablethemes .action-links',
-		'.widget-control-actions'
+		'.widget-control-actions',
+		'#set-post-thumbnail',
+		'.quicktags-toolbar',
+		'.menu-delete',
+		'.locations-row-links',
+		'.manage-menus'
 	];
 	
 	var i;
@@ -65,6 +70,6 @@ jQuery(document).ready(function($) {
 	$('#export-filters #submit').show();
 	
 	// do kindly allow this plugin to be deactivated by authorized persons
-	$("#code-freeze .row-actions-visible").show();
+	$("#code-freeze.active td.plugin-title div.row-actions").show();
 	
 });

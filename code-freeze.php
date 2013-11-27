@@ -2,13 +2,13 @@
 
 /*
 Plugin Name: Code Freeze
-Plugin URI: http://www.davistribe.org/codefreeze/
+Plugin URI: http://wordpress.org/extend/plugins/code-freeze/
 Description: Temporarily puts your WordPress into a "read only" state. When activated, comments and trackbacks are temporarily disabled as well as changes in the dashboard. Deactivate to restore full functionality.
 Author: Kevin Davis
 Author URI: http://www.davistribe.org/
 Text Domain: codefreeze
 Domain Path: /languages/
-Version: 1.2.1
+Version: 1.2.2
 License: GPLv2
 */
 
@@ -198,6 +198,7 @@ if ( ! function_exists( 'cf_admin_init' ) ) {
 		remove_submenu_page('upload.php', 'media-new.php');
 		remove_submenu_page('link-manager.php', 'link-add.php');
 		remove_submenu_page('themes.php', 'theme-editor.php');
+		remove_submenu_page('themes.php', 'customize.php');
 		remove_submenu_page('themes.php', 'theme-install.php');
 		remove_submenu_page('plugins.php', 'plugin-editor.php');
 		remove_submenu_page('plugins.php', 'plugin-install.php');
@@ -220,5 +221,20 @@ if ( ! function_exists( 'cf_admin_init' ) ) {
 			return array(); // prevents PHP warning from any plugins that have modified the action links
 		}
 		return $links;
+	}
+	
+	/**
+	 * Remove topic replies and new topics from bbPress
+	 *
+	 * @note	props to theZedt
+	 * @return  void
+	 */
+	if ( class_exists( 'bbPress' ) ) {
+		add_filter( 'bbp_current_user_can_access_create_reply_form', cf_close_bbp_comments );
+		add_filter( 'bbp_current_user_can_access_create_topic_form', cf_close_bbp_comments );
+
+		function cf_close_bbp_comments() {
+			return false;
+		}
 	}
 }
