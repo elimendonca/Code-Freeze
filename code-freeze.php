@@ -8,7 +8,7 @@ Author: Kevin Davis
 Author URI: http://www.davistribe.org/
 Text Domain: codefreeze
 Domain Path: /languages/
-Version: 1.2.2
+Version: 1.2.3
 License: GPLv2
 */
 

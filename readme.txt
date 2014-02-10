@@ -3,7 +3,7 @@ Contributors: k3davis
 Tags: code freeze, read only, disable, disable comments, disable dashboard, migration
 Author URI: http://www.davistribe.org/code/
 Requires at least: 3.0
-Tested up to: 3.7
+Tested up to: 3.8
 Stable tag: trunk
 
 Temporarily puts your WordPress site into a "read only" state. Useful on multi-author sites that are in the process of changing web hosts.
@@ -59,6 +59,9 @@ Yes. The plugin can be network activated rendering all sites on the network effe
 Let me know what you discover is still available and I'll try to disable modifications to it where appropriate.
 
 == Changelog ==
+
+= 1.2.3 =
+* WP 3.8 readiness
 
 = 1.2.2 =
 * Fixed broken plugin page deactivation
